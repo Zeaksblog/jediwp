@@ -3,11 +3,11 @@
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
- * @pachage bootstrapwp
+ * @pachage jediwp
  */
 
-if ( ! function_exists( 'bootstrapwp_comment' ) ) :
-function bootstrapwp_comment( $comment, $args, $depth ) {
+if ( ! function_exists( 'jediwp_comment' ) ) :
+function jediwp_comment( $comment, $args, $depth ) {
 
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
@@ -16,7 +16,7 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 		// Display trackbacks differently than normal comments.
 	?>
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-		<p><?php _e( 'Pingback:', 'bootstrapwp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'bootstrapwp' ), '<span class="ping-meta"><span class="edit-link">', '</span></span>' ); ?></p>
+		<p><?php _e( 'Pingback:', 'jediwp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'jediwp' ), '<span class="ping-meta"><span class="edit-link">', '</span></span>' ); ?></p>
 	<?php
 			break;
 		default :
@@ -39,14 +39,14 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
                         printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
                             esc_url( get_comment_link( $comment->comment_ID ) ),
                             get_comment_time( 'c' ),
-                            sprintf( _x( '%1$s at %2$s', '1: date, 2: time', 'bootstrapwp' ), get_comment_date(), get_comment_time() )
+                            sprintf( _x( '%1$s at %2$s', '1: date, 2: time', 'jediwp' ), get_comment_date(), get_comment_time() )
                         );
-                        edit_comment_link( __( 'Edit', 'bootstrapwp' ), ' <span class="edit-link">', '<span>' ); ?>
+                        edit_comment_link( __( 'Edit', 'jediwp' ), ' <span class="edit-link">', '<span>' ); ?>
                     </div><!-- .comment-date -->
                 </header><!-- .comment-meta -->
     
                 <?php if ( '0' == $comment->comment_approved ) : ?>
-                    <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'bootstrapwp' ); ?></p>
+                    <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'jediwp' ); ?></p>
                 <?php endif; ?>
     
                 <div class="comment-content">
@@ -54,7 +54,7 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
                 </div><!-- .comment-content -->
     
                 <div class="reply">
-                    <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'reply to comment', 'bootstrapwp' ) . ' &rarr;', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+                    <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'reply to comment', 'jediwp' ) . ' &rarr;', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
                 </div><!-- .reply -->
                 
             </div><!-- .comment-details -->
