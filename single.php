@@ -10,7 +10,11 @@ get_header(); ?>
 <div class="row">
 	<div id="primary" class="col-lg-9 col-md-9">
 		<main id="main" class="site-main" role="main">
-
+	<!-- breadcrumbs -->
+      <?php
+        if ( function_exists('jediwp_breadcrumbs') )
+          jediwp_breadcrumbs();
+      ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>

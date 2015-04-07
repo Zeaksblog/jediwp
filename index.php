@@ -17,7 +17,9 @@ get_header(); ?>
 <div class="row">
 	<div id="primary" class="col-lg-9 col-md-9">
 		<main id="main" class="site-main" role="main">
-
+            <?php if (function_exists('bootstrapwp_breadcrumbs')) {
+            jediwp_breadcrumbs();
+        } ?>
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
